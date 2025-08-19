@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier Éditorial 30 Jours</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background: white;
+            color: #333;
+            font-size: 10px;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 190mm;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: #2e4c8e;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin: -10px -10px 0 -10px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            margin: 0;
+            font-size: 11px;
+            font-weight: normal;
+            margin-top: 2px;
+        }
+        
+        .month-info {
+            background: #f8f9fa;
+            padding: 5px;
+            text-align: center;
+            margin: 8px 0;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .month-info strong {
+            color: #2e4c8e;
+            font-size: 11px;
+        }
+        
+        .weeks-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .week-section {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 6px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .week-header {
+            background: #dc3545;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 10px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .day-row {
+            background: white;
+            padding: 4px;
+            border-radius: 3px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 4px;
+        }
+        
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3px;
+        }
+        
+        .day-date {
+            font-weight: bold;
+            color: #2e4c8e;
+            font-size: 9px;
+        }
+        
+        .platform-checks {
+            display: flex;
+            gap: 8px;
+            font-size: 8px;
+        }
+        
+        .checkbox {
+            width: 8px;
+            height: 8px;
+            border: 1px solid #333;
+            border-radius: 1px;
+            display: inline-block;
+            margin-right: 2px;
+        }
+        
+        .content-fields {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3px;
+            font-size: 8px;
+        }
+        
+        .field-label {
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .field-line {
+            border-bottom: 1px solid #999;
+            min-height: 10px;
+        }
+        
+        .bilan-section {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 5px;
+            padding: 8px;
+            margin-top: 8px;
+        }
+        
+        .bilan-title {
+            font-weight: bold;
+            color: #856404;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .bilan-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        
+        .bilan-item {
+            font-size: 9px;
+        }
+        
+        .bilan-label {
+            font-weight: bold;
+            color: #856404;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .bilan-value {
+            border-bottom: 1px solid #999;
+            min-height: 12px;
+            display: block;
+        }
+        
+        .ideas-section {
+            background: #e8f4f8;
+            border: 1px solid #2e4c8e;
+            border-radius: 5px;
+            padding: 6px;
+            margin-top: 6px;
+        }
+        
+        .ideas-title {
+            font-weight: bold;
+            color: #2e4c8e;
+            font-size: 10px;
+            margin-bottom: 3px;
+        }
+        
+        .ideas-lines {
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 3px;
+            padding: 4px;
+            min-height: 25px;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 9px;
+            color: #666;
+            margin-top: 8px;
+            padding-top: 5px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CALENDRIER ÉDITORIAL 30 JOURS</h1>
+            <p class="subtitle">Mon planning de publication pour les réseaux sociaux</p>
+        </div>
+        
+        <div class="month-info">
+            <strong>MOIS :</strong> ___________________________
+        </div>
+        
+        <div class="content">
+            <div class="weeks-container">
+                <div class="week-section">
+                    <div class="week-header">SEMAINE 1</div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Lundi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Mercredi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Vendredi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="week-section">
+                    <div class="week-header">SEMAINE 2</div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Lundi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Mercredi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Vendredi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="weeks-container" style="margin-top: 8px;">
+                <div class="week-section">
+                    <div class="week-header">SEMAINE 3</div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Lundi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Mercredi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Vendredi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="week-section">
+                    <div class="week-header">SEMAINE 4</div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Lundi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Mercredi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-row">
+                        <div class="day-header">
+                            <span class="day-date">Vendredi ___/___</span>
+                            <div class="platform-checks">
+                                <span><span class="checkbox"></span>L</span>
+                                <span><span class="checkbox"></span>F</span>
+                                <span><span class="checkbox"></span>I</span>
+                            </div>
+                        </div>
+                        <div class="content-fields">
+                            <span class="field-label">Thème:</span>
+                            <div class="field-line"></div>
+                            <span class="field-label">Idée:</span>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bilan-section">
+                <div class="bilan-title">BILAN DU MOIS</div>
+                <div class="bilan-grid">
+                    <div class="bilan-item">
+                        <span class="bilan-label">Posts prévus:</span>
+                        <span class="bilan-value"></span>
+                    </div>
+                    <div class="bilan-item">
+                        <span class="bilan-label">Posts publiés:</span>
+                        <span class="bilan-value"></span>
+                    </div>
+                    <div class="bilan-item">
+                        <span class="bilan-label">Meilleure perf:</span>
+                        <span class="bilan-value"></span>
+                    </div>
+                    <div class="bilan-item">
+                        <span class="bilan-label">À refaire:</span>
+                        <span class="bilan-value"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ideas-section">
+                <div class="ideas-title">IDÉES POUR LE MOIS PROCHAIN :</div>
+                <div class="ideas-lines"></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Module 5 - Parcours client, réseaux pro et d'influence | IDRAC Business School | Gaëlle Briantais
+        </div>
+    </div>
+</body>
+</html>

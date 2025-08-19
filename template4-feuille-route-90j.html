@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feuille de Route Réseau 90 Jours</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background: white;
+            color: #333;
+            font-size: 10px;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 190mm;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: #2e4c8e;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin: -10px -10px 0 -10px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            margin: 0;
+            font-size: 11px;
+            font-weight: normal;
+            margin-top: 2px;
+        }
+        
+        .content {
+            padding: 8px 0;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 6px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            gap: 6px;
+        }
+        
+        .number-circle {
+            background: #dc3545;
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+        
+        .section-title {
+            font-size: 11px;
+            font-weight: bold;
+            color: #2e4c8e;
+            flex: 1;
+        }
+        
+        .priority-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        
+        .priority-box {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 6px;
+        }
+        
+        .priority-header {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+        
+        .priority-number {
+            background: #dc3545;
+            color: white;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 10px;
+        }
+        
+        .field-line {
+            border-bottom: 1px solid #999;
+            min-height: 12px;
+            margin-bottom: 3px;
+        }
+        
+        .field-label {
+            font-weight: bold;
+            color: #2e4c8e;
+            font-size: 9px;
+        }
+        
+        .checkbox {
+            width: 9px;
+            height: 9px;
+            border: 1px solid #333;
+            border-radius: 2px;
+            display: inline-block;
+            margin-right: 3px;
+        }
+        
+        .months-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        
+        .month-section {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 6px;
+        }
+        
+        .month-header {
+            background: #e8f4f8;
+            color: #2e4c8e;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+        
+        .week-block {
+            margin-bottom: 4px;
+            font-size: 9px;
+        }
+        
+        .week-label {
+            font-weight: bold;
+            color: #dc3545;
+            font-size: 9px;
+        }
+        
+        .event-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            margin-left: 10px;
+        }
+        
+        .event-item {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .event-type {
+            font-size: 8px;
+            color: #666;
+            white-space: nowrap;
+        }
+        
+        .event-line {
+            flex: 1;
+            border-bottom: 1px solid #999;
+            min-height: 10px;
+        }
+        
+        .objective-box {
+            text-align: right;
+            font-size: 9px;
+            margin-top: 4px;
+            padding-top: 4px;
+            border-top: 1px dashed #ddd;
+        }
+        
+        .engagement-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 5px;
+            padding: 8px;
+            margin-top: 6px;
+        }
+        
+        .engagement-box h3 {
+            margin: 0 0 6px 0;
+            color: #856404;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        
+        .system-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        
+        .system-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 9px;
+        }
+        
+        .engagement-action {
+            background: white;
+            border: 1px solid #ffc107;
+            border-radius: 3px;
+            padding: 4px;
+            font-size: 10px;
+        }
+        
+        .action-label {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 2px;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 9px;
+            color: #666;
+            margin-top: 8px;
+            padding-top: 5px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .inline-input {
+            border-bottom: 1px solid #999;
+            display: inline-block;
+            min-width: 50px;
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>FEUILLE DE ROUTE RÉSEAU 90 JOURS</h1>
+            <p class="subtitle">Ma stratégie réseau pour les 3 prochains mois</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="number-circle">1</div>
+                    <div class="section-title">MES 3 RÉSEAUX PRIORITAIRES</div>
+                </div>
+                
+                <div class="priority-grid">
+                    <div class="priority-box">
+                        <div class="priority-header">
+                            <span class="priority-number">1</span>
+                            <strong style="font-size: 10px;">Réseau :</strong>
+                        </div>
+                        <div class="field-line"></div>
+                        <div style="margin-top: 3px;">
+                            <span class="checkbox"></span><span style="font-size: 9px;">Physique</span>
+                            <span class="checkbox" style="margin-left: 8px;"></span><span style="font-size: 9px;">Digital</span>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div class="field-label">Objectif :</div>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-header">
+                            <span class="priority-number">2</span>
+                            <strong style="font-size: 10px;">Réseau :</strong>
+                        </div>
+                        <div class="field-line"></div>
+                        <div style="margin-top: 3px;">
+                            <span class="checkbox"></span><span style="font-size: 9px;">Physique</span>
+                            <span class="checkbox" style="margin-left: 8px;"></span><span style="font-size: 9px;">Digital</span>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div class="field-label">Objectif :</div>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="priority-box">
+                        <div class="priority-header">
+                            <span class="priority-number">3</span>
+                            <strong style="font-size: 10px;">Réseau :</strong>
+                        </div>
+                        <div class="field-line"></div>
+                        <div style="margin-top: 3px;">
+                            <span class="checkbox"></span><span style="font-size: 9px;">Physique</span>
+                            <span class="checkbox" style="margin-left: 8px;"></span><span style="font-size: 9px;">Digital</span>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div class="field-label">Objectif :</div>
+                            <div class="field-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="number-circle">2</div>
+                    <div class="section-title">PLANNING DÉTAILLÉ</div>
+                </div>
+                
+                <div class="months-grid">
+                    <div class="month-section">
+                        <div class="month-header">MOIS 1 : __________</div>
+                        
+                        <div class="week-block">
+                            <span class="week-label">Sem 1-2:</span>
+                            <div class="event-grid">
+                                <div class="event-item">
+                                    <span class="event-type">Phys:</span>
+                                    <span class="event-line"></span>
+                                </div>
+                                <div class="event-item">
+                                    <span class="event-type">Digit:</span>
+                                    <span class="event-line"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="week-block">
+                            <span class="week-label">Sem 3-4:</span>
+                            <div class="event-grid">
+                                <div class="event-item">
+                                    <span class="event-type">Phys:</span>
+                                    <span class="event-line"></span>
+                                </div>
+                                <div class="event-item">
+                                    <span class="event-type">Digit:</span>
+                                    <span class="event-line"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="objective-box">
+                            <strong>Contacts :</strong> _____
+                        </div>
+                    </div>
+                    
+                    <div class="month-section">
+                        <div class="month-header">MOIS 2 : __________</div>
+                        
+                        <div style="margin-bottom: 3px;">
+                            <div class="event-item">
+                                <span class="event-type" style="font-size: 8px;">Événement 1:</span>
+                                <span class="event-line"></span>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 3px;">
+                            <div class="event-item">
+                                <span class="event-type" style="font-size: 8px;">Événement 2:</span>
+                                <span class="event-line"></span>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 3px;">
+                            <div class="event-item">
+                                <span class="event-type" style="font-size: 8px;">Actions digit:</span>
+                                <span class="event-line"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="objective-box">
+                            <strong>Contacts :</strong> _____
+                        </div>
+                    </div>
+                    
+                    <div class="month-section">
+                        <div class="month-header">MOIS 3 : __________</div>
+                        
+                        <div style="margin-bottom: 3px;">
+                            <div class="event-item">
+                                <span class="event-type" style="font-size: 8px;">Événement 1:</span>
+                                <span class="event-line"></span>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 3px;">
+                            <div class="event-item">
+                                <span class="event-type" style="font-size: 8px;">Événement 2:</span>
+                                <span class="event-line"></span>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 3px;">
+                            <div class="event-item">
+                                <span class="event-type" style="font-size: 8px;">Actions digit:</span>
+                                <span class="event-line"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="objective-box">
+                            <strong>Contacts :</strong> _____
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="engagement-box">
+                <h3>SYSTÈME DE SUIVI & ENGAGEMENT</h3>
+                
+                <div class="system-grid">
+                    <div class="system-item">
+                        <span class="checkbox"></span>
+                        <span>Fichier Excel contacts créé</span>
+                    </div>
+                    <div class="system-item">
+                        <span class="checkbox"></span>
+                        <span>Rappels agenda programmés</span>
+                    </div>
+                    <div class="system-item">
+                        <span class="checkbox"></span>
+                        <span>Budget : <span class="inline-input" style="width: 40px;"></span>€/mois</span>
+                    </div>
+                </div>
+                
+                <div class="engagement-action">
+                    <div class="action-label">Mon engagement - Ma 1ère action dans les 15 jours :</div>
+                    <div class="field-line"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Module 5 - Parcours client, réseaux pro et d'influence | IDRAC Business School | Gaëlle Briantais
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit Réseau Pro</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background: white;
+            color: #333;
+            font-size: 11px;
+            line-height: 1.3;
+        }
+        
+        .container {
+            max-width: 190mm;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: #2e4c8e;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin: -10px -10px 0 -10px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            margin: 0;
+            font-size: 12px;
+            font-weight: normal;
+            margin-top: 3px;
+        }
+        
+        .content {
+            padding: 10px 0;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 8px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            gap: 8px;
+        }
+        
+        .number-circle {
+            background: #dc3545;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+        
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #2e4c8e;
+            flex: 1;
+        }
+        
+        .time-badge {
+            background: #e8f4f8;
+            color: #2e4c8e;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        .pitch-box {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px;
+            min-height: 35px;
+            font-size: 10px;
+            line-height: 1.4;
+        }
+        
+        .three-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .question-item {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+            align-items: flex-start;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: #dc3545;
+            font-size: 10px;
+            min-width: 18px;
+        }
+        
+        .question-line {
+            flex: 1;
+            border-bottom: 1px solid #999;
+            min-height: 14px;
+            font-size: 10px;
+        }
+        
+        .checkbox {
+            width: 10px;
+            height: 10px;
+            border: 1.5px solid #333;
+            border-radius: 2px;
+            flex-shrink: 0;
+            margin-right: 5px;
+        }
+        
+        .checklist-section {
+            background: #fff3cd;
+            border: 1.5px solid #ffc107;
+            border-radius: 6px;
+            padding: 10px;
+        }
+        
+        .checklist-section h3 {
+            margin: 0 0 8px 0;
+            color: #856404;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        
+        .checklist-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .checklist-group {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        
+        .checklist-group-title {
+            font-weight: bold;
+            color: #856404;
+            font-size: 11px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+            margin-bottom: 4px;
+            font-size: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .subsection-title {
+            font-weight: bold;
+            color: #2e4c8e;
+            font-size: 11px;
+            margin: 8px 0 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>KIT RÉSEAU PROFESSIONNEL</h1>
+            <p class="subtitle">Mes outils pour réussir mes rencontres professionnelles</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="number-circle">1</div>
+                    <div class="section-title">MES 3 PITCHS</div>
+                </div>
+                
+                <div class="three-columns">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <span class="subsection-title">Pitch Ascenseur</span>
+                            <span class="time-badge">30 sec</span>
+                        </div>
+                        <div class="pitch-box"></div>
+                    </div>
+                    
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <span class="subsection-title">Pitch Debout</span>
+                            <span class="time-badge">1 min</span>
+                        </div>
+                        <div class="pitch-box"></div>
+                    </div>
+                    
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <span class="subsection-title">Pitch Assis</span>
+                            <span class="time-badge">3 min</span>
+                        </div>
+                        <div class="pitch-box"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="number-circle">2</div>
+                    <div class="section-title">MES 10 QUESTIONS POUR ENGAGER LA CONVERSATION</div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <div class="subsection-title">Questions Brise-glace</div>
+                        <div class="question-item">
+                            <span class="question-number">1.</span>
+                            <span class="question-line"></span>
+                        </div>
+                        <div class="question-item">
+                            <span class="question-number">2.</span>
+                            <span class="question-line"></span>
+                        </div>
+                        <div class="question-item">
+                            <span class="question-number">3.</span>
+                            <span class="question-line"></span>
+                        </div>
+                        <div class="question-item">
+                            <span class="question-number">4.</span>
+                            <span class="question-line"></span>
+                        </div>
+                        <div class="question-item">
+                            <span class="question-number">5.</span>
+                            <span class="question-line"></span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="subsection-title">Questions Business</div>
+                        <div class="question-item">
+                            <span class="question-number">6.</span>
+                            <span class="question-line"></span>
+                        </div>
+                        <div class="question-item">
+                            <span class="question-number">7.</span>
+                            <span class="question-line"></span>
+                        </div>
+                        <div class="question-item">
+                            <span class="question-number">8.</span>
+                            <span class="question-line"></span>
+                        </div>
+                        <div class="question-item">
+                            <span class="question-number">9.</span>
+                            <span class="question-line"></span>
+                        </div>
+                        <div class="question-item">
+                            <span class="question-number">10.</span>
+                            <span class="question-line"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="checklist-section">
+                <h3>CHECK-LIST ÉVÉNEMENT RÉSEAU</h3>
+                
+                <div class="checklist-columns">
+                    <div class="checklist-group">
+                        <div class="checklist-group-title">AVANT</div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Inscription confirmée</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>50 cartes de visite min</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Tenue pro prête</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Objectif : ____ contacts</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Recherche participants</span>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-group">
+                        <div class="checklist-group-title">PENDANT</div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Arriver tôt (30 min)</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Se présenter organisateurs</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Écouter > Parler</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Poser des questions</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Noter sur cartes reçues</span>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-group">
+                        <div class="checklist-group-title">APRÈS</div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>LinkedIn sous 48h</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Message personnalisé</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Fichier contacts MAJ</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Relance J+15</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkbox"></span>
+                            <span>Tenir promesses</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Module 5 - Parcours client, réseaux pro et d'influence | IDRAC Business School | Gaëlle Briantais
+        </div>
+    </div>
+</body>
+</html>

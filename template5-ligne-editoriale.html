@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Ligne Éditoriale</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background: white;
+            color: #333;
+            font-size: 10px;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 190mm;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: #2e4c8e;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin: -10px -10px 0 -10px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            margin: 0;
+            font-size: 11px;
+            font-weight: normal;
+            margin-top: 2px;
+        }
+        
+        .content {
+            padding: 8px 0;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 6px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            gap: 6px;
+        }
+        
+        .number-circle {
+            background: #dc3545;
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+        
+        .section-title {
+            font-size: 11px;
+            font-weight: bold;
+            color: #2e4c8e;
+            flex: 1;
+        }
+        
+        .field-box {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 5px;
+            min-height: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .field-label {
+            font-weight: bold;
+            color: #2e4c8e;
+            font-size: 10px;
+            margin-bottom: 3px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+        
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .value-number {
+            background: #dc3545;
+            color: white;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 9px;
+            flex-shrink: 0;
+        }
+        
+        .value-line {
+            flex: 1;
+            border-bottom: 1px solid #999;
+            min-height: 12px;
+        }
+        
+        .checkbox {
+            width: 10px;
+            height: 10px;
+            border: 1px solid #333;
+            border-radius: 2px;
+            display: inline-block;
+            margin-right: 3px;
+        }
+        
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+        
+        .target-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 9px;
+        }
+        
+        .themes-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        
+        .theme-box {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 5px;
+        }
+        
+        .theme-header {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 2px;
+        }
+        
+        .theme-number {
+            background: #dc3545;
+            color: white;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 9px;
+        }
+        
+        .theme-title {
+            font-weight: bold;
+            color: #2e4c8e;
+            font-size: 9px;
+            text-transform: uppercase;
+        }
+        
+        .theme-desc {
+            font-size: 8px;
+            color: #666;
+            margin-left: 18px;
+        }
+        
+        .theme-line {
+            border-bottom: 1px solid #999;
+            min-height: 10px;
+            margin-top: 2px;
+            margin-left: 18px;
+        }
+        
+        .tone-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+        }
+        
+        .tone-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 9px;
+        }
+        
+        .words-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            margin-top: 5px;
+        }
+        
+        .word-box {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 3px;
+            text-align: center;
+            font-size: 9px;
+            min-height: 14px;
+        }
+        
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        
+        .rule-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 5px;
+            padding: 6px;
+            text-align: center;
+        }
+        
+        .rule-text {
+            font-weight: bold;
+            color: #856404;
+            font-size: 10px;
+        }
+        
+        .frequency-box {
+            background: #e8f4f8;
+            border: 1px solid #2e4c8e;
+            border-radius: 5px;
+            padding: 6px;
+            text-align: center;
+        }
+        
+        .frequency-title {
+            font-weight: bold;
+            color: #2e4c8e;
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+        
+        .frequency-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 9px;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 9px;
+            color: #666;
+            margin-top: 8px;
+            padding-top: 5px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MA LIGNE ÉDITORIALE</h1>
+            <p class="subtitle">Simple et efficace pour mes réseaux sociaux</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="number-circle">1</div>
+                    <div class="section-title">QUI JE SUIS - Mon identité de marque</div>
+                </div>
+                
+                <div class="field-label">En 1 phrase :</div>
+                <div class="field-box"></div>
+                
+                <div class="field-label">Mes 3 valeurs clés :</div>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <span class="value-number">1</span>
+                        <span class="value-line"></span>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-number">2</span>
+                        <span class="value-line"></span>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-number">3</span>
+                        <span class="value-line"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="number-circle">2</div>
+                    <div class="section-title">À QUI JE PARLE - Ma cible sur les réseaux</div>
+                </div>
+                
+                <div class="target-grid">
+                    <div class="target-item">
+                        <span class="checkbox"></span>
+                        <span>Entreprises</span>
+                    </div>
+                    <div class="target-item">
+                        <span class="checkbox"></span>
+                        <span>Syndics/Gestionnaires</span>
+                    </div>
+                    <div class="target-item">
+                        <span class="checkbox"></span>
+                        <span>Collectivités</span>
+                    </div>
+                    <div class="target-item">
+                        <span class="checkbox"></span>
+                        <span>Commerces</span>
+                    </div>
+                    <div class="target-item">
+                        <span class="checkbox"></span>
+                        <span>Autre : _________</span>
+                    </div>
+                </div>
+                <div style="margin-top: 4px;">
+                    <span style="font-weight: bold; font-size: 9px;">Précisions :</span>
+                    <span style="border-bottom: 1px solid #999; display: inline-block; width: calc(100% - 60px); margin-left: 3px;"></span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="number-circle">3</div>
+                    <div class="section-title">QUOI DIRE - Mes 5 thématiques de contenu</div>
+                </div>
+                
+                <div class="themes-container">
+                    <div>
+                        <div class="theme-box">
+                            <div class="theme-header">
+                                <span class="theme-number">1</span>
+                                <span class="theme-title">EXPERTISE</span>
+                            </div>
+                            <div class="theme-desc">conseils, astuces métier</div>
+                            <div class="theme-line"></div>
+                        </div>
+                        
+                        <div class="theme-box" style="margin-top: 5px;">
+                            <div class="theme-header">
+                                <span class="theme-number">2</span>
+                                <span class="theme-title">COULISSES</span>
+                            </div>
+                            <div class="theme-desc">mon quotidien, équipe</div>
+                            <div class="theme-line"></div>
+                        </div>
+                        
+                        <div class="theme-box" style="margin-top: 5px;">
+                            <div class="theme-header">
+                                <span class="theme-number">3</span>
+                                <span class="theme-title">RÉSULTATS</span>
+                            </div>
+                            <div class="theme-desc">avant/après, témoignages</div>
+                            <div class="theme-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="theme-box">
+                            <div class="theme-header">
+                                <span class="theme-number">4</span>
+                                <span class="theme-title">ACTUALITÉS</span>
+                            </div>
+                            <div class="theme-desc">nouveautés, événements</div>
+                            <div class="theme-line"></div>
+                        </div>
+                        
+                        <div class="theme-box" style="margin-top: 5px;">
+                            <div class="theme-header">
+                                <span class="theme-number">5</span>
+                                <span class="theme-title">VALEURS</span>
+                            </div>
+                            <div class="theme-desc">engagements, RSE</div>
+                            <div class="theme-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="number-circle">4</div>
+                    <div class="section-title">COMMENT LE DIRE - Mon ton</div>
+                </div>
+                
+                <div class="tone-options">
+                    <div class="tone-item">
+                        <span class="checkbox"></span>
+                        <span>Professionnel mais accessible</span>
+                    </div>
+                    <div class="tone-item">
+                        <span class="checkbox"></span>
+                        <span>Proche et convivial</span>
+                    </div>
+                    <div class="tone-item">
+                        <span class="checkbox"></span>
+                        <span>Expert et pédagogue</span>
+                    </div>
+                    <div class="tone-item">
+                        <span class="checkbox"></span>
+                        <span>Dynamique et moderne</span>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 5px;">
+                    <span class="checkbox"></span>
+                    <span style="font-size: 9px;">Autre : ___________________________________________</span>
+                </div>
+                
+                <div style="margin-top: 5px;">
+                    <div class="field-label">3 mots qui me caractérisent :</div>
+                    <div class="words-grid">
+                        <div class="word-box"></div>
+                        <div class="word-box"></div>
+                        <div class="word-box"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-section">
+                <div class="rule-box">
+                    <div class="rule-text">MA RÈGLE D'OR :<br>80% VALEUR / 20% PROMO</div>
+                </div>
+                
+                <div class="frequency-box">
+                    <div class="frequency-title">FRÉQUENCE RÉALISTE</div>
+                    <div class="frequency-options">
+                        <div class="tone-item">
+                            <span class="checkbox"></span>
+                            <span>1 post/sem</span>
+                        </div>
+                        <div class="tone-item">
+                            <span class="checkbox"></span>
+                            <span>2 posts/sem</span>
+                        </div>
+                        <div class="tone-item">
+                            <span class="checkbox"></span>
+                            <span>3 posts/sem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Module 5 - Parcours client, réseaux pro et d'influence | IDRAC Business School | Gaëlle Briantais
+        </div>
+    </div>
+</body>
+</html>
